@@ -32,8 +32,8 @@ coordinator:
   # CPU & Memory
   # Memory allocated to each coordinator, expressed in MB.
   # CPU allocated to each coordinator, expressed in CPU cores.
-  cpu: 15
-  memory: 122800
+  cpu: 4
+  memory: 16384
 
   # This count is used for slave coordinators only.
   # The total number of coordinators will always be count + 1.
@@ -42,7 +42,7 @@ coordinator:
   # Coordinator data volume size (applies to the master coordinator only).
   # In most managed Kubernetes environments (AKS, GKE, etc.), the size of the disk has a direct impact on
   # the provisioned and maximum performance of the disk.
-  volumeSize: 128Gi
+  volumeSize: 20Gi
 
   # Uncomment the lines below to use a custom set of extra startup parameters for the coordinator.
   #extraStartParams: >-
@@ -118,17 +118,17 @@ executor:
   # CPU & Memory
   # Memory allocated to each executor, expressed in MB.
   # CPU allocated to each executor, expressed in CPU cores.
-  cpu: 15
-  memory: 122800
+  cpu: 8
+  memory: 32768
 
   # Engines
   # Engine names be 47 characters or less and be lowercase alphanumber characters or '-'.
   # Note: The number of executor pods will be the length of the array below * count.
   engines: ["default"]
-  count: 3
+  count: 2
 
   # Executor volume size.
-  volumeSize: 128Gi
+  volumeSize: 20Gi
 
   # Uncomment the lines below to use a custom set of extra startup parameters for executors.
   #extraStartParams: >-
@@ -156,7 +156,7 @@ executor:
   # Designed for use with NVMe storage devices, performance may be impacted when using
   # persistent volume storage that resides far from the physical node.
   cloudCache:
-    enabled: true
+    enabled: false
 
     # Uncomment this value to use a different storage class for C3.
     #storageClass:
